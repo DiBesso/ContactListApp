@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct ContactListAppApp: App {
+struct ContactListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(isPresented: .constant(true), persons: Person.getContactList(), person: Person.generateContactList())
         }
     }
 }
