@@ -9,19 +9,16 @@ import SwiftUI
 
 struct NumbersView: View {
     let persons: [Person]
-    let person: Person
     
     var body: some View {
         NavigationView{
             ZStack{
-                List {
-                    ForEach(persons) { person in
-                        Section("\(person.fullName)") {
+                     List (persons) { person in
+                        Section(person.fullName) {
                             Text(person.phoneNumber)
                             Text(person.email)
                         }
                     }
-                }
             }
             .navigationTitle("Contact List")
         }
@@ -30,6 +27,6 @@ struct NumbersView: View {
 
 struct NumbersView_Previews: PreviewProvider {
     static var previews: some View {
-        NumbersView(persons: Person.getContactList(), person: Person.generateContactList())
+        NumbersView(persons: Person.getContactList())
     }
 }

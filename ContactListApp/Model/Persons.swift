@@ -22,34 +22,9 @@ struct Person: Identifiable {
 
 
 extension Person {
-    static func generateContactList() -> Person {
+    static func getPerson() -> Person {
         
-        var persons = Person(id: 0, name: "", surname: "", phoneNumber: "", email: "")
-        
-        let names = DataManager.shared.names.shuffled()
-        let surnames = DataManager.shared.surnames.shuffled()
-        let emails = DataManager.shared.emails.shuffled()
-        let phones = DataManager.shared.phones.shuffled()
-        
-        
-        let iterationCount = min(
-            names.count,
-            surnames.count,
-            emails.count,
-            phones.count
-        )
-        
-        for index in 0..<iterationCount {
-            let person = Person(
-                id: index,
-                name: names[index],
-                surname: surnames[index],
-                phoneNumber: phones[index],
-                email: emails[index]
-            )
-            persons = person
-    }
-        return persons
+        Person(id: 0, name: "", surname: "", phoneNumber: "", email: "")
     }
     
     static func getContactList() -> [Person] {

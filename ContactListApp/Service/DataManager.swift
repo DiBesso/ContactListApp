@@ -12,7 +12,7 @@ class DataManager {
     
     static let shared = DataManager()
     
-    var names = [
+    let names = [
         "John", "Aaron", "Tim", "Ted",
         "Steven", "Sharon", "Nicola",
         "Allan", "Bruce", "Carl"

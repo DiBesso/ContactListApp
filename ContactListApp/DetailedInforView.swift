@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DetailedInforView: View {
-    @Binding var isPresented: Bool
     let persons: [Person]
     let person: Person
     
@@ -22,12 +21,12 @@ struct DetailedInforView: View {
             Text(person.email)
                 .font(.title3)
         }
-        .navigationTitle("\(person.fullName)")
+        .navigationTitle(person.fullName)
     }
 }
 
 struct DetailedInforView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedInforView(isPresented: .constant(true), persons: Person.getContactList(), person: Person.generateContactList())
+        DetailedInforView(persons: Person.getContactList(), person: Person.getPerson())
     }
 }

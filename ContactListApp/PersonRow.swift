@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct PersonRow: View {
-    @State private var isPresented = false
-    let persons: [Person]
     let person: Person
     
     var body: some View {
-        Button(action: {
-            isPresented.toggle() }) {
+        Button(action: {}) {
                 HStack {
-                    Text("\(person.fullName)")
+                    Text(person.fullName)
                     Spacer()
                 }
             }
@@ -25,6 +22,6 @@ struct PersonRow: View {
 
 struct PersonRow_Previews: PreviewProvider {
     static var previews: some View {
-        PersonRow(persons: Person.getContactList(), person: Person.generateContactList())
+        PersonRow(person: Person.getPerson())
     }
 }

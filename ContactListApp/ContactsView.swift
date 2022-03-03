@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContactsView: View {
-    @Binding var isPresented: Bool
+    @State private var isPresented = false
     let persons: [Person]
     
     var body: some View {
@@ -16,9 +16,9 @@ struct ContactsView: View {
             ZStack{
                 List(persons) { person in
                     NavigationLink {
-                        DetailedInforView(isPresented: $isPresented , persons: persons, person: person)
+                        DetailedInforView(persons: persons, person: person)
                     } label: {
-                        PersonRow(persons: persons, person: person)
+                        PersonRow(person: person)
                     }
 
                    
@@ -32,6 +32,6 @@ struct ContactsView: View {
 
 struct ContactsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactsView(isPresented: .constant(true), persons: Person.getContactList())
+        ContactsView(persons: Person.getContactList())
     }
 }
